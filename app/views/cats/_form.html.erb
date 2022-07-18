@@ -1,0 +1,28 @@
+<% action_form = cat.persisted? ? cat_path(cat) : cats_url %>
+<% method_form = cat.persisted? ? "PATCH" : "POST" %>
+<% submit_value = cat.persisted? ? "Update Cat!" : "Create Cat!" %>
+
+
+<form action="<%= action_form %>" method="POST">
+    <input type="hidden" name="_method" value=<%= method_form %>>
+
+    <lable for="cat_name">Cat Name</lable><br>
+    <input type="text" 
+           name="cat[name]"
+           id="cat_name"
+           value="<%= @cat.name %>">
+    <br>
+    <br>
+    <lable for="cat_gender">Cat Gender</lable><br>
+    <input type="text" 
+           name="cat[gender]" 
+           id="cat_gender" 
+           placeholder="female or male"
+           value="<%= @cat.gender %>">
+    <br>
+    <br>
+    <input type="submit" value=<%= submit_value %>>
+</form>
+<br>
+<br>
+<a href=" <%= cats_url %> ">Back to all cats!</a>

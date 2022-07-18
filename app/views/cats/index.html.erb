@@ -1,0 +1,23 @@
+<h1>All the cats!</h1>
+
+<ul>
+    <% @cats.each do |cat| %>
+        <li style="color:Tomato;">
+            <a href="<%= cat_url(cat.id) %>">
+                <%= cat.name %>
+            </a>
+            <br>
+            <br>
+            <form action="<%= cat_url(cat) %>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="submit" value="Delete <%= cat.name %>">
+            </form>
+            <br>
+        </li>
+    <% end %>
+    <br>
+    <li>Cats would be listed here.</li>
+    <li>This would be another cat.</li>
+</ul>
+
+<a href="<%= new_cat_url %>">Create a new cat</a>
