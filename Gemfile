@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -45,6 +45,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
   gem 'pry-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
+
 end
 
 group :development do
@@ -55,6 +58,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  # Get detailed errors and have a live console that can play with when debugging.
   gem 'better_errors'
   gem 'binding_of_caller'
 end
@@ -65,6 +69,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~>3.1'
+  gem 'launchy'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

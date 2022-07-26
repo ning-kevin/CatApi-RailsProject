@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   resources :toys, only: [:create, :update, :destroy, :show]
 
+  resources :sessions, only: [:new, :create, :destroy]
+
+  resources :users, only: [:new, :create, :show] do 
+    resources :counter, only: [:update]
+  end
+
   root to: redirect("/cats")
 
 end
