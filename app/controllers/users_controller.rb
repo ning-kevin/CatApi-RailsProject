@@ -8,7 +8,10 @@ class UsersController < ApplicationController
             login!(@user)
             redirect_to user_path(@user)
         else
-            render json: @user.errors.full_messages
+            # render json: @user.errors.full_messages
+            flash.now[:error] = "You didn't satisfy our credential requirements."
+            # redirect_to new_user_path
+            render :new
         end
     end
 
@@ -19,13 +22,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(id: params[:id])
-        render json: @user
-    end
-
-    def self.find_by_credentials(username, password)
-        user = User.find_by(username: username)
-        return nil if user.nil?
-        user.is_password?(password) ? user : nil
+        render :show
     end
 
 

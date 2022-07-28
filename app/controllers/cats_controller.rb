@@ -1,4 +1,6 @@
 class CatsController < ApplicationController
+    before_action :require_current_user!, only: [:create, :new, :edit, :update, :destroy]
+
     def index
         @cats = Cat.all
         render :index

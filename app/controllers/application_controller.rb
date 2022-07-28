@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
     # skip_before_action :verify_authenticity_token
 
+    #Used as part of CSRF protection
+    protect_from_forgery with: :exception
+
     # This enables :current_user to be used throughout any view.
     helper_method :current_user
 

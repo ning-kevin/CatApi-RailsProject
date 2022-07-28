@@ -1,3 +1,15 @@
 <h1><%= @user.username %></h1>
 
 <p>Hello, dear user!</p>
+
+<p>Current Counter Value: <%= @user.counter %></p>
+
+<form action="<%= user_counter_path(@user) %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <label for="user_counter">New Counter</label>
+    <input id="user_counter" type="number" name="user[user_id][counter]">
+
+    <input type="submit" value="Update Counter!">
+</form>

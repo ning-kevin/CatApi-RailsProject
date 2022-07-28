@@ -4,10 +4,10 @@
 
 <form action="<%= action %>", method="POST">
     <input type="hidden" name="_method" value="<%= method %>" >
-    <input type="hidden" name="authenticity_token" value="<% form_authenticity_token %>" >
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
 
     <label for="user_name">Username</label>
-    <input id="user_name" name="user[username]" type="text">
+    <input id="user_name" name="user[username]" type="text" value="<%= @user.username %>">
     <br><br>
 
     <label for="user_password">Password</label>

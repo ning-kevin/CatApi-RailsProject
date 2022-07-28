@@ -5,6 +5,7 @@
 
 <form action="<%= action_form %>" method="POST">
     <input type="hidden" name="_method" value=<%= method_form %>>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
     <lable for="cat_name">Cat Name</lable><br>
     <input type="text" 

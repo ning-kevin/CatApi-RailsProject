@@ -1,16 +1,24 @@
 <h1>Log in!<h1>
 
-<form action="/sessions" method="POST">
-    <input type="hidden" name"authenticity_token" value="<%= form_authenticity_token %>">
+<h4><%= flash[:error] %></h4>
+
+<form action="/session" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
     <label for="user_username">Username</label>
     <input id="user_username" type="text" name="user[username]">
+    <br>
     <br>
 
     <label for="user_password">Password</label>
     <input id="user_password" type="password" name="user[password]">
     <br>
+    <br>
 
     <input type="submit" value="Log me in!">
 
 </form>
+
+<% content_for :footer do %>
+    <p>This is a sign_in page!</p>
+<% end %>
