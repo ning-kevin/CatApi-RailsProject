@@ -21,8 +21,8 @@ class Cat < ApplicationRecord
     private
 
     def valid_name_length?
-        if self.name.length < 2
-            errors.add(:name, "is too short!")
+        if self.name.nil? || self.name.length < 2
+            errors.add(:name, "is too short (minimum is 2 characters)")
         end
     end
 end

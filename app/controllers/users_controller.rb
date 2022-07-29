@@ -9,7 +9,7 @@ class UsersController < ApplicationController
             redirect_to user_path(@user)
         else
             # render json: @user.errors.full_messages
-            flash.now[:error] = "You didn't satisfy our credential requirements."
+            flash.now[:error] = "User exists or password is less than 6 digits!"
             # redirect_to new_user_path
             render :new
         end

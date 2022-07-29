@@ -2,6 +2,7 @@
 
 <form action="/toys" method="POST">
     <input type="hidden" name="toy[cat_id]" value="<%= @cat.id %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
     <label for="toy_name">Toy Name</label><br>
     <input id="toy_name" type="text" name="toy[name]" value="<%= @toy.name %>">
